@@ -1,32 +1,27 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const passport = require("passport");
-const authRoute = require("./routes/auth");
-const cookieSession = require("cookie-session");
-const passportStrategy = require("./passport");
+import express from "express";
+import bodyParser from "body-parser";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import cors from "cors";
+import session from "express-session";
+
+import authRouter from "./routes/authRouter.js";
+import productRouter from "./routes/productRouter.js";
+import companyRouter from "./routes/companyRouter.js";
+
 const app = express();
 
-app.use(
-	cookieSession({
-		name: "session",
-		keys: ["cyberwolve"],
-		maxAge: 24 * 60 * 60 * 100,
-	})
-);
+dotenv.config()
 
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(bodyParser.json({ limit: "30mb", extended: true}));
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
+app.use(cors());
 
-app.use(
-	cors({
-		origin: "http://localhost:3000",
-		methods: "GET,POST,PUT,DELETE",
-		credentials: true,
-	})
-);
+mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
+    .then(() => app.listen(process.env.PORT, () => console.log("Connected ok")))
+    .catch((error) => console.log(error))
 
-app.use("/auth", authRoute);
+app.use('/auth', authRouter);
+app.use('/product', productRouter);
+app.use('/company', companyRouter);
 
-const port = process.env.PORT || 8080;
-app.listen(port, () => console.log(`Listenting on port ${port}...`));
