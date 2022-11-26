@@ -6,7 +6,6 @@ import cors from "cors";
 import session from "express-session";
 
 import authRouter from "./routes/authRouter.js";
-// import userRouter from "./routes/userRouter.js";
 import productRouter from "./routes/productRouter.js";
 import companyRouter from "./routes/companyRouter.js";
 
@@ -16,7 +15,7 @@ dotenv.config()
 
 app.use(bodyParser.json({ limit: "30mb", extended: true}));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true}));
-app.use(cors())
+app.use(cors());
 
 mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => app.listen(process.env.PORT, () => console.log("Connected ok")))
@@ -25,5 +24,4 @@ mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology:
 app.use('/auth', authRouter);
 app.use('/product', productRouter);
 app.use('/company', companyRouter);
-// app.use('/user', userRouter);
 
