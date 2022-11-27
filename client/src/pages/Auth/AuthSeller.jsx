@@ -39,10 +39,8 @@ const AuthSeller = () => {
 
   return (
     <>
-      <div>AuthSeller</div>
-
       <div className='min-h-screen flex justify-between'>
-        <div className="min-h-screen w-1/2 bg-white flex items-center justify-center">
+        <div className="min-h-screen w-1/2 flex items-center justify-center bg-zinc-50">
             <form className='p-2 flex flex-col w-90' onSubmit={handleSubmit}>
                 <h1 className='text-4xl mb-8 font-bold text-gray-800'>Seller</h1>
                 <h1 className='text-2xl mb-3 font-semibold text-gray-700'>{isSignUp ? "Create Account to Get Started" : "Login to Your Account to Get Started"}</h1>
@@ -80,8 +78,8 @@ const AuthSeller = () => {
                 </button>
             </form>
         </div>
-        <div className="min-h-screen w-1/2 flex items-center justify-center bg-gray-100">
-            <img src="" alt="foto1" />
+        <div className="min-h-screen w-1/2 flex items-center justify-cente">
+            <img src="../img/seller.jpg" alt="foto1" />
         </div>
     </div>
     </>

@@ -21,6 +21,6 @@ mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology:
     .catch((error) => console.log(error))
 
 app.use('/auth', authRouter);
-app.use('/product', productRouter);
+app.use('/products', productRouter);
 app.use('/company', companyRouter);
 

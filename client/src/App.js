@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 import Home from './pages/Home/Home';
 import Decide from './pages/Decide/Decide';
+import Products from './pages/Products/Products';
 
 const App = () => {
   const user = useSelector((state) => state.AuthReducer.authData)
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/home' element={user ? <Home /> : <Navigate to='../auth' />} />
         <Route path='/authcompany' element={user ? <Navigate to='../home' /> : <AuthCompany />} />
         <Route path='/authseller' element={user ? <Navigate to='../home' /> : <AuthSeller />} />
+        <Route path='/products' element={user ? <Products /> : <Navigate to='decide'/>} />
       </Routes>
     </>
   )

@@ -43,20 +43,15 @@ const AuthCompany = () => {
             confirmpass: "",
             bid_amount: "",
             campaign_fund: "",
-            status: "",
             town: "",
             radius: "",
-            keywords: ""
         })
     }
 
   return (
     <>
-      <div>AuthCompany</div>
-
-
       <div className='min-h-screen flex justify-between'>
-        <div className="min-h-screen w-1/2 bg-white flex items-center justify-center">
+        <div className="min-h-screen w-1/2 bg-zinc-50 flex items-center justify-center">
             <form className='p-2 flex flex-col w-90' onSubmit={handleSubmit}>
                 <h1 className='text-4xl mb-8 font-bold text-gray-800'>Company</h1>
                 <h1 className='text-2xl mb-3 font-semibold text-gray-700'>{isSignUp ? "Create Account to Get Started" : "Login to Your Account to Get Started"}</h1>
@@ -118,15 +113,6 @@ const AuthCompany = () => {
 
                 <input 
                 className='my-1 p-2 border-2 rounded-lg' 
-                type="checkbox" 
-                name='status' 
-                onChange={handleChange}
-                value={true}/>
-
-                <span>Status on</span>
-
-                <input 
-                className='my-1 p-2 border-2 rounded-lg' 
                 type="text" 
                 placeholder='Town' 
                 name='town' 
@@ -140,18 +126,8 @@ const AuthCompany = () => {
                 name='radius' 
                 onChange={handleChange}
                 value={data.radius}/>
-
-                <input 
-                className='my-1 p-2 border-2 rounded-lg' 
-                type="text" 
-                placeholder='Keywords' 
-                name='keywords' 
-                onChange={handleChange}
-                value={data.keywords}/>
                 </>
                 }
-
-
 
                 <span className='mt-4 mb-4 text-base cursor-pointer text-gray-500 hover:text-cyan-500' onClick={() => {setIsSignUp((prev) => !prev); resetForm()}}>{isSignUp ? "Already have an account? Login!" : "Dont have an account? Sign Up"}</span>
                 <button className='mt-3 p-1 block border-2 border-cyan-500 bg-cyan-500  w-2/4 rounded text-white hover:bg-white hover:text-cyan-500' type='submit'>
@@ -159,8 +135,8 @@ const AuthCompany = () => {
                 </button>
             </form>
         </div>
-        <div className="min-h-screen w-1/2 flex items-center justify-center bg-gray-100">
-            <img src="" alt="foto1" />
+        <div className="min-h-screen w-1/2 flex items-center justify-center">
+            <img src="../img/company.jpg" alt="foto1" />
         </div>
     </div>
     </>

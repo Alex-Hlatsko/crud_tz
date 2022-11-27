@@ -4,10 +4,10 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
   const user = useSelector((state) => state.AuthReducer.authData);
-  // console.log(user)
+  console.log(user)
   return (
     <>
-      <div>Home</div>
+      Home
 
     </>
   )

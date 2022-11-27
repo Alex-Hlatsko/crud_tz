@@ -11,7 +11,7 @@ const productSchema = mongoose.Schema({
     },
     description: {
         type: String,
-        unique: true,
+        required: true,
     },
     follow_companies: [],
 },
