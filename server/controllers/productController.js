@@ -59,16 +59,16 @@ export const deleteProduct = async(req, res) => {
 
 export const followProduct = async(req,res) => {
     const productId = req.params.id;
-    const {companyId} = req.body;
+    const {_id} = req.body;
     
     try {
         const product = await productModel.findById(productId)
 
-        if(!product.follow_companies.includes(companyId)){
-            await productModel.updateOne({$push : {follow_companies: companyId}})
+        if(!product.follow_companies.includes(_id)){
+            await productModel.updateOne({$push : {follow_companies: _id}})
             res.status(200).json("Product follow")
         } else {
-            await productModel.updateOne({$pull: {follow_companies: companyId}})
+            await productModel.updateOne({$pull: {follow_companies: _id}})
             res.status(200).json("Product unfollow")
         }
     } catch (error) {
