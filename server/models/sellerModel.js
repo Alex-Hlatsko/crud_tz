@@ -22,5 +22,5 @@ const sallerSchema = mongoose.Schema({
 {timestamps: true}
 )
 
-const sallerModel = mongoose.model("saller", sallerSchema);
+const sallerModel = mongoose.model("seller", sallerSchema);
 export default sallerModel;

@@ -3,7 +3,6 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
-import session from "express-session";
 
 import authRouter from "./routes/authRouter.js";
 import productRouter from "./routes/productRouter.js";
@@ -22,6 +21,6 @@ mongoose.connect(process.env.DB_URL, {useNewUrlParser: true, useUnifiedTopology:
     .catch((error) => console.log(error))
 
 app.use('/auth', authRouter);
-app.use('/product', productRouter);
+app.use('/products', productRouter);
 app.use('/company', companyRouter);
 
