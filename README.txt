@@ -1,2 +1,4 @@
-back: npm i express nodemon cors dotenv passport passport-google-oauth20 cookie-session
-front: npm i axios react-router-dom
+app like aliexpress. There are 2 types of users: buyers and sellers.
+- Customers can buy products, that is, add to their cart
+- Sellers can sell the product
+In addition to all this, each of them can edit their own profile.
